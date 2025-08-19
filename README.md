@@ -41,9 +41,7 @@ Frontend/
 
 
 Live URL
-
-Frontend: [Your frontend live URL here]
+Frontend: https://sanjayasokan.github.io/User-management-frontend/
 
 GitHub Repo
-
-[Frontend Repository URL]
+Link: https://github.com/SanjayAsokan/User-management-frontend
