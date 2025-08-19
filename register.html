@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <div id="alert" class="alert"></div>
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Name" required autocomplete="name">
+            <input type="email" id="email" placeholder="Email" required autocomplete="email">
+            <input type="password" id="password" placeholder="Password" required autocomplete="new-password">
+            <select id="role">
+                <option value="user">User</option>
+                <option value="moderator">Moderator</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="index.html">Login</a></p>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

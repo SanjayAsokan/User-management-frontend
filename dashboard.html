@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Dashboard</h2>
+        <p id="welcome"></p>
+        <div id="adminSection" style="display:none;">
+            <h3>Admin Section</h3>
+            <a href="resources.html">Manage Resources</a>
+            <button id="viewUsers">View All Users</button>
+            <div id="usersList"></div>
+        </div>
+        <div id="moderatorSection" style="display:none;">
+            <h3>Moderator Section</h3>
+            <a href="resources.html">Manage Resources</a>
+        </div>
+        <div id="userSection" style="display:none;">
+            <h3>User Section</h3>
+            <a href="resources.html">View Resources</a>
+            <a href="profile.html">My Profile</a>
+        </div>
+        <button id="logout">Logout</button>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
