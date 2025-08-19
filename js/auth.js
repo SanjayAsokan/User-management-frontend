@@ -1,5 +1,6 @@
-const backendUrl = "http://localhost:5000/api"; 
+const backendUrl = "http://localhost:5000/api"; // replace with deployed backend URL
 
+// LOGIN
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
@@ -27,6 +28,7 @@ if (loginForm) {
   });
 }
 
+// REGISTER
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {

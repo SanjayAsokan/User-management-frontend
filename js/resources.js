@@ -1,12 +1,12 @@
-const backendUrl = "http://localhost:5000/api";
+const backendUrl = "https://user-management-backend-bk3n.onrender.com";
 
 const tokenRes = localStorage.getItem("token");
-if (!tokenRes) 
-  window.location.href = "index.html";
+if (!tokenRes) window.location.href = "index.html";
 
 const resourceForm = document.getElementById("resourceForm");
 const resourcesList = document.getElementById("resourcesList");
 
+// Load all resources
 async function loadResources() {
   const res = await fetch(`${backendUrl}/resources`, {
     headers: { Authorization: `Bearer ${tokenRes}` },
@@ -25,6 +25,7 @@ async function loadResources() {
 }
 loadResources();
 
+// CREATE RESOURCE
 resourceForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const title = document.getElementById("title").value;
@@ -51,6 +52,7 @@ resourceForm.addEventListener("submit", async (e) => {
   }
 });
 
+// EDIT RESOURCE
 window.editResource = async (id, oldTitle, oldDesc) => {
   const newTitle = prompt("Edit title", oldTitle);
   const newDesc = prompt("Edit description", oldDesc);
@@ -69,6 +71,7 @@ window.editResource = async (id, oldTitle, oldDesc) => {
   else alert(data.error);
 };
 
+// DELETE RESOURCE
 window.deleteResource = async (id) => {
   if (!confirm("Delete this resource?")) return;
   const res = await fetch(`${backendUrl}/resources/${id}`, {
@@ -80,6 +83,7 @@ window.deleteResource = async (id) => {
   else alert(data.error);
 };
 
+// Back to Dashboard
 document.querySelectorAll(".backDashboard").forEach((btn) => {
   btn.addEventListener("click", () => {
     window.location.href = "dashboard.html";

@@ -1,9 +1,9 @@
-const backendUrl = "http://localhost:5000/api";
+const backendUrl = "https://user-management-backend-bk3n.onrender.com";
 
 const token = localStorage.getItem("token");
-if (!token) 
-  window.location.href = "index.html";
+if (!token) window.location.href = "index.html";
 
+// Helper to decode JWT
 function parseJwt(token) {
   return JSON.parse(atob(token.split(".")[1]));
 }
@@ -11,18 +11,18 @@ function parseJwt(token) {
 const userData = parseJwt(token);
 document.getElementById("welcome").innerText = `Welcome, ${userData.role}`;
 
-if (userData.role === "admin") 
-  document.getElementById("adminSection").style.display = "block";
-if (userData.role === "moderator") 
-  document.getElementById("moderatorSection").style.display = "block";
-if (userData.role === "user") 
-  document.getElementById("userSection").style.display = "block";
+// Show role-based sections
+if (userData.role === "admin") document.getElementById("adminSection").style.display = "block";
+if (userData.role === "moderator") document.getElementById("moderatorSection").style.display = "block";
+if (userData.role === "user") document.getElementById("userSection").style.display = "block";
 
+// Logout button
 document.getElementById("logout")?.addEventListener("click", () => {
   localStorage.removeItem("token");
   window.location.href = "index.html";
 });
 
+// Admin: View all users
 document.getElementById("viewUsers")?.addEventListener("click", async () => {
   try {
     const res = await fetch(`${backendUrl}/users`, {
@@ -41,6 +41,7 @@ document.getElementById("viewUsers")?.addEventListener("click", async () => {
   }
 });
 
+// PROFILE PAGE
 const profileForm = document.getElementById("profileForm");
 if (profileForm) {
   async function loadProfile() {
@@ -89,6 +90,7 @@ if (profileForm) {
   });
 }
 
+// Back to Dashboard buttons
 document.querySelectorAll(".backDashboard").forEach((btn) => {
   btn.addEventListener("click", () => {
     window.location.href = "dashboard.html";
